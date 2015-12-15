@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<launch>
+
+  <!-- Load the combined ridgeback-baxter URDF's to the param server -->
+  <param name="robot_description"
+         command="$(find xacro)/xacro.py --inorder
+         $(find ridgeback_baxter_description)/urdf/ridgeback_baxter.urdf.xacro gazebo:=true"/>
+
+  <!-- Launch baxter_simulator -->
+  <include file="$(find baxter_gazebo)/launch/baxter_world.launch">
+    <arg name="load_robot_description" value="false"/>
+  </include>
+
+  <!-- Launch ridgeback_simulator -->
+  <!-- TODO -->
+
+</launch>
